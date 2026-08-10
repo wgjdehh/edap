@@ -18,7 +18,6 @@ Used .describe() for statistical summaries of numerical columns.
 
 Used .head() to preview the first few rows.
 
-Identified column names, data types, and detect any obvious inconsistencies or outliers.
 
 # Data Cleaning
 
@@ -34,29 +33,12 @@ Handled Missing Values:
 
 Drop rows/columns if missing values are negligible.
 
-Use imputation techniques (e.g., mean, median, mode) for essential missing fields.
-
 Fix Data Types: Convert columns to appropriate formats (e.g., datetime, float).
 
 Currency Formatting: Use .replace() and .str.replace() to clean and convert currency-formatted strings to numerical values.
 
 Validation: Re-check data integrity to ensure no inconsistencies remain after cleaning.
 
-# Feature Engineering
-
-----------------------------------------------------
-
-Objective: Enhance the dataset to support meaningful and efficient analysis.
-
-Actions:
-
-Created New Features:
-
-Added a new column total_amount by calculating unit_price * quantity.
-
-Streamline Analysis:
-
-Used the engineered field to support aggregation and filtering in SQL-based exploration.
 
 # Load Data into Databases (MySQL)
 
