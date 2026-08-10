@@ -2,7 +2,7 @@
 
 ![data downloaded (1)](https://github.com/user-attachments/assets/256cc2ff-3c15-449b-9f32-d2868d58acae)
 dashbord for walmart sales
-![image](https://github.com/wgjdehh/edap/blob/main/Screenshot%202026-08-08%20175234.png?raw=true)
+
 # walmart sales 
 
 
@@ -73,7 +73,7 @@ Detection of peak sales periods and customer purchase behavior.
 
 Profit margin analysis per branch and category.
 
-Walmart Sales Dashboard
+# Walmart Sales Dashboard
 
 ![image](https://github.com/wgjdehh/edap/blob/main/Screenshot%202026-08-08%20175234.png?raw=true)
 Top row — the numbers that matter most at a glance: total revenue, year-over-year growth, units sold, and profit margin.
