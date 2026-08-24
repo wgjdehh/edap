@@ -91,13 +91,7 @@ FROM walmart
 GROUP BY category
 ORDER BY total_revenue DESC;
 
--- Q: Sum of profit margin by category
-SELECT
-    category,
-    SUM(unit_price * quantity * profit_margin) AS total_profit_margin
-FROM walmart
-GROUP BY category
-ORDER BY total_profit_margin DESC;
+
 
 -- Q: Total revenue by branch
 SELECT
