@@ -83,4 +83,63 @@ SELECT branch, payment_method AS preferred_payment_method
 FROM cte
 WHERE rank = 1;
 
+-- Q: Total revenue by category
+SELECT
+    category,
+    SUM(unit_price * quantity) AS total_revenue
+FROM walmart
+GROUP BY category
+ORDER BY total_revenue DESC;
+
+-- Q: Sum of profit margin by category
+SELECT
+    category,
+    SUM(unit_price * quantity * profit_margin) AS total_profit_margin
+FROM walmart
+GROUP BY category
+ORDER BY total_profit_margin DESC;
+
+-- Q: Total revenue by branch
+SELECT
+    branch,
+    SUM(unit_price * quantity) AS total_revenue
+FROM walmart
+GROUP BY branch
+ORDER BY total_revenue DESC;
+
+-- Q: Sum of profit margin by branch
+SELECT
+    branch,
+    SUM(unit_price * quantity * profit_margin) AS total_profit_margin
+FROM walmart
+GROUP BY branch
+ORDER BY total_profit_margin DESC;
+
+-- Q: Year-on-Year revenue growth % by branch
+WITH yearly_revenue AS (
+    SELECT
+        branch,
+        YEAR(STR_TO_DATE(date, '%d/%m/%y')) AS sales_year,
+        SUM(unit_price * quantity) AS total_revenue
+    FROM walmart
+    GROUP BY branch, YEAR(STR_TO_DATE(date, '%d/%m/%y'))
+),
+yoy AS (
+    SELECT
+        branch,
+        sales_year,
+        total_revenue,
+        LAG(total_revenue) OVER (PARTITION BY branch ORDER BY sales_year) AS prev_year_revenue
+    FROM yearly_revenue
+)
+SELECT
+    branch,
+    sales_year,
+    total_revenue,
+    prev_year_revenue,
+    ROUND(
+        (total_revenue - prev_year_revenue) / prev_year_revenue * 100, 2
+    ) AS yoy_growth_pct
+FROM yoy
+ORDER BY branch, sales_year
 
