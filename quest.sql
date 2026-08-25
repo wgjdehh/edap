@@ -44,12 +44,7 @@ WHERE rank = 1;
 
 
 
--- Q: Calculate the total quantity of items sold per payment method
-SELECT 
-    payment_method,
-    SUM(quantity) AS no_qty_sold
-FROM walmart
-GROUP BY payment_method;
+
 
 -- Q: Determine the average, minimum, and maximum rating of categories for each city
 SELECT 
@@ -104,7 +99,7 @@ ORDER BY total_revenue DESC;
 -- Q: Sum of profit margin by branch
 SELECT
     branch,
-    SUM(unit_price * quantity * profit_margin) AS total_profit_margin
+    SUM( quantity * profit_margin) AS total_profit_margin
 FROM walmart
 GROUP BY branch
 ORDER BY total_profit_margin DESC;
