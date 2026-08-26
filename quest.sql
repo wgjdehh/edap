@@ -36,7 +36,7 @@ FROM (
         branch,
         category,
         AVG(rating) AS avg_rating,
-        RANK() OVER(PARTITION BY branch ORDER BY AVG(rating) DESC) AS rank
+        DENSE_RANK() OVER(PARTITION BY branch ORDER BY AVG(rating) DESC) AS rank
     FROM walmart
     GROUP BY branch, category
 ) AS ranked
