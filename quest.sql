@@ -28,7 +28,7 @@ SELECT
 FROM walmart
 GROUP BY payment_method;
 
--- Project Question : Identify the highest-rated category in each branch
+-- Business Problem Q : Identify the highest-rated category in each branch
 -- Display the branch, category, and avg rating
 SELECT branch, category, avg_rating
 FROM (
@@ -46,7 +46,7 @@ WHERE rank = 1;
 
 
 
--- Q: Determine the average, minimum, and maximum rating of categories for each city
+-- Business Problem Q: Determine the average, minimum, and maximum rating of categories for each city
 SELECT 
     city,
     category,
@@ -56,7 +56,7 @@ SELECT
 FROM walmart
 GROUP BY city, category;
 
--- Q: Calculate the total profit for each category
+-- Business Problem Q: Calculate the total profit for each category
 SELECT 
     category,
     SUM(unit_price * quantity * profit_margin) AS total_profit
@@ -64,7 +64,7 @@ FROM walmart
 GROUP BY category
 ORDER BY total_profit DESC;
 
--- Q: Determine the most common payment method for each branch
+-- Business Problem Q: Determine the most common payment method for each branch
 WITH cte AS (
     SELECT 
         branch,
@@ -78,7 +78,7 @@ SELECT branch, payment_method AS preferred_payment_method
 FROM cte
 WHERE rank = 1;
 
--- Q: Total revenue by category
+-- Business Problem Q: Total revenue by category
 SELECT
     category,
     SUM(unit_price * quantity) AS total_revenue
@@ -88,7 +88,7 @@ ORDER BY total_revenue DESC;
 
 
 
--- Q: Total revenue by branch
+-- Business Problem Q: Total revenue by branch
 SELECT
     branch,
     SUM(unit_price * quantity) AS total_revenue
@@ -96,7 +96,7 @@ FROM walmart
 GROUP BY branch
 ORDER BY total_revenue DESC;
 
--- Q: Sum of profit margin by branch
+-- Business Problem Q: Sum of profit margin by branch
 SELECT
     branch,
     SUM( quantity * profit_margin) AS total_profit_margin
@@ -104,7 +104,7 @@ FROM walmart
 GROUP BY branch
 ORDER BY total_profit_margin DESC;
 
--- Q: Year-on-Year revenue growth % by branch
+-- Business Problem Q: Year-on-Year revenue growth % by branch
 WITH yearly_revenue AS (
     SELECT
         branch,
