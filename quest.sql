@@ -59,7 +59,7 @@ GROUP BY city, category;
 -- Business Problem Q: Calculate the total profit for each category
 SELECT 
     category,
-    SUM(unit_price * quantity * profit_margin) AS total_profit
+    SUM( quantity * profit_margin) AS total_profit
 FROM walmart
 GROUP BY category
 ORDER BY total_profit DESC;
